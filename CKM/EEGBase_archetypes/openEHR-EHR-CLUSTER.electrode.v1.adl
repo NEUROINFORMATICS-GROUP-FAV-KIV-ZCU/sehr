@@ -1,0 +1,310 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.electrode.v1
+
+concept
+	[at0000]	-- Electrode
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Václav Papež">
+		["organisation"] = <"University of West Bohemia">
+		["email"] = <"vpapez@kiv.zcu.cz">
+		["date"] = <"22.7.2014">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Describes electrode for EEG experiment. It is based on odML terminology.">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"From odML terminology  v1.0 http://portal.g-node.org/odml/terminologies/v1.0/terminologies.xml. ">
+		["MD5-CAM-1.0.1"] = <"154D93CD3CE68A65ECC9209EA002C49E">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Electrode
+		items cardinality matches {2..*; unordered} matches {
+			ELEMENT[at0001] matches {	-- Type
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- sharp
+							at0003, 	-- patch
+							at0004, 	-- injection
+							at0005, 	-- extracellular
+							at0006, 	-- multibarrel
+							at0007, 	-- multi-electrode-array
+							at0008]	-- tetrode
+						}
+					}
+				}
+			}
+			CLUSTER[at0011] matches {	-- Material
+				items cardinality matches {1..*; unordered} matches {
+					CLUSTER[at0012] occurrences matches {0..1} matches {	-- Glass
+						name matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[local::at0034]}		-- glass
+							}
+						}
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0013] occurrences matches {0..1} matches {	-- GlassType
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0014] occurrences matches {0..1} matches {	-- GlassSpecification
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0015] occurrences matches {0..1} matches {	-- FirePolish
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0016] occurrences matches {0..1} matches {	-- Puller
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0017] occurrences matches {0..1} matches {	-- PullParameter
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0018] occurrences matches {0..1} matches {	-- Other
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0019] matches {	-- Name
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0020] occurrences matches {0..1} matches {	-- Description
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+			ELEMENT[at0021] occurrences matches {0..1} matches {	-- ShapeParameters
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0022] occurrences matches {0..1} matches {	-- Manufacturer
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0024] occurrences matches {0..1} matches {	-- TipSize
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::122]>
+						list = <
+							["1"] = <
+								units = <"µm">
+								magnitude = <|>=0.0|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0025] occurrences matches {0..1} matches {	-- Coating
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0026] occurrences matches {0..1} matches {	-- Impedance
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::375]>
+						list = <
+							["1"] = <
+								units = <"Ohm">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0027] occurrences matches {0..1} matches {	-- ElectrodeCount
+				value matches {
+					DV_COUNT matches {
+						magnitude matches {|>=0|}
+					}
+				}
+			}
+			ELEMENT[at0028] occurrences matches {0..1} matches {	-- Usage
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0029, 	-- Ground
+							at0030, 	-- Reference
+							at0031]	-- Channel
+						}
+					}
+				}
+			}
+			ELEMENT[at0032] occurrences matches {0..1} matches {	-- Description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0033] occurrences matches {0..1} matches {	-- ElectrodeLocation
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Electrode">
+					description = <"*">
+				>
+				["at0001"] = <
+					text = <"Type">
+					description = <"The type of electrode">
+				>
+				["at0002"] = <
+					text = <"sharp">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"patch">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"injection">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"extracellular">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"multibarrel">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"multi-electrode-array">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"tetrode">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Material">
+					description = <"The Material the electrodes are made of e.g. glass. tungsten, steel ...">
+				>
+				["at0012"] = <
+					text = <"Glass">
+					description = <"Glass Electrode">
+				>
+				["at0013"] = <
+					text = <"GlassType">
+					description = <"The Type of Glass used to pull these electrodes. (e.g. Quartz, Borosilicate)">
+				>
+				["at0014"] = <
+					text = <"GlassSpecification">
+					description = <"Inner and outer diameter, with or without filament.">
+				>
+				["at0015"] = <
+					text = <"FirePolish">
+					description = <"Specifies whether or not the electrodes were fire polished.">
+				>
+				["at0016"] = <
+					text = <"Puller">
+					description = <"The Puller used to make the electrodes.">
+				>
+				["at0017"] = <
+					text = <"PullParameter">
+					description = <"The specific pull parameters like heat, trip velocity, heat and cooling duration etc..">
+				>
+				["at0018"] = <
+					text = <"Other">
+					description = <"The Material the electrodes are made of except glass.">
+				>
+				["at0019"] = <
+					text = <"Name">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Description">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"ShapeParameters">
+					description = <"The shape parameters of the electrode.">
+				>
+				["at0022"] = <
+					text = <"Manufacturer">
+					description = <"The manufacturer of the electrodes if e.g. ordered from a company.">
+				>
+				["at0024"] = <
+					text = <"TipSize">
+					description = <"The tip size.">
+				>
+				["at0025"] = <
+					text = <"Coating">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Impedance">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"ElectrodeCount">
+					description = <"Number of electrodes in a multi-electrode-array.">
+				>
+				["at0028"] = <
+					text = <"Usage">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Ground">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Reference">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Channel">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Description">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"ElectrodeLocation">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"glass">
+					description = <"*">
+				>
+			>
+		>
+	>

@@ -1,0 +1,68 @@
+archetype (adl_version=1.5.1; generated)
+	openEHR-EHR-CLUSTER.environment.v1.0.0
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["name"] = <"Václav Papež">
+		["organisation"] = <"University of West Bohemia">
+		["email"] = <"vpapez@kiv.zcu.cz">
+		["date"] = <"23.7.2014">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Describes environment, where the experiment was done.">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"unmanaged">
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"6D48AA33866A967E2F45670546EB7FCF">
+	>
+
+definition
+	CLUSTER[id1] matches {	-- Environment
+		items matches {
+			ELEMENT[id3] occurrences matches {0..1} matches {	-- Weather
+				value matches {
+					DV_TEXT[id5] 
+				}
+			}
+			allow_archetype CLUSTER[id2] occurrences matches {0..*} matches {	-- Environmental conditions
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.environmental_conditions(-a-zA-Z0-9_]+)*\.v1/}
+			}
+			ELEMENT[id4] occurrences matches {0..1} matches {	-- Description
+				value matches {
+					DV_TEXT[id6] 
+				}
+			}
+		}
+	}
+
+terminology
+	term_definitions = <
+		["en"] = <
+			["id1"] = <
+				text = <"Environment">
+				description = <"unknown">
+			>
+			["id2"] = <
+				text = <"Environmental conditions">
+				description = <"*">
+			>
+			["id3"] = <
+				text = <"Weather">
+				description = <"*">
+			>
+			["id4"] = <
+				text = <"Description">
+				description = <"*">
+			>
+		>
+	>

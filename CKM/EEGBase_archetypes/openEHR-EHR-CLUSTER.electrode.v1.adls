@@ -1,0 +1,316 @@
+archetype (adl_version=1.5.1; generated)
+	openEHR-EHR-CLUSTER.electrode.v1.0.0
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["name"] = <"Václav Papež">
+		["organisation"] = <"University of West Bohemia">
+		["email"] = <"vpapez@kiv.zcu.cz">
+		["date"] = <"22.7.2014">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Describes electrode for EEG experiment. It is based on odML terminology.">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"initial">
+	other_details = <
+		["references"] = <"From odML terminology  v1.0 http://portal.g-node.org/odml/terminologies/v1.0/terminologies.xml. ">
+		["MD5-CAM-1.0.1"] = <"154D93CD3CE68A65ECC9209EA002C49E">
+	>
+
+definition
+	CLUSTER[id1] matches {	-- Electrode
+		items cardinality matches {2..*; unordered} matches {
+			ELEMENT[id2] matches {	-- Type
+				value matches {
+					DV_CODED_TEXT[id35] matches {
+						defining_code matches {[ac1]}		-- Type (synthesised)
+					}
+				}
+			}
+			CLUSTER[id12] matches {	-- Material
+				items matches {
+					CLUSTER[id13] occurrences matches {0..1} matches {	-- Glass
+						name matches {
+							DV_CODED_TEXT[id36] matches {
+								defining_code matches {[at35]}
+							}
+						}
+						items matches {
+							ELEMENT[id14] occurrences matches {0..1} matches {	-- GlassType
+								value matches {
+									DV_TEXT[id37] 
+								}
+							}
+							ELEMENT[id15] occurrences matches {0..1} matches {	-- GlassSpecification
+								value matches {
+									DV_TEXT[id38] 
+								}
+							}
+							ELEMENT[id16] occurrences matches {0..1} matches {	-- FirePolish
+								value matches {
+									DV_BOOLEAN[id39] matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[id17] occurrences matches {0..1} matches {	-- Puller
+								value matches {
+									DV_TEXT[id40] 
+								}
+							}
+							ELEMENT[id18] occurrences matches {0..1} matches {	-- PullParameter
+								value matches {
+									DV_TEXT[id41] 
+								}
+							}
+						}
+					}
+					CLUSTER[id19] occurrences matches {0..1} matches {	-- Other
+						items matches {
+							ELEMENT[id20] matches {	-- Name
+								value matches {
+									DV_TEXT[id42] 
+								}
+							}
+							ELEMENT[id21] occurrences matches {0..1} matches {	-- Description
+								value matches {
+									DV_TEXT[id43] 
+								}
+							}
+						}
+					}
+				}
+			}
+			ELEMENT[id22] occurrences matches {0..1} matches {	-- ShapeParameters
+				value matches {
+					DV_TEXT[id44] 
+				}
+			}
+			ELEMENT[id23] occurrences matches {0..1} matches {	-- Manufacturer
+				value matches {
+					DV_TEXT[id45] 
+				}
+			}
+			ELEMENT[id25] occurrences matches {0..1} matches {	-- TipSize
+				value matches {
+					DV_QUANTITY[id46] matches {
+						property matches {[at36]}
+						magnitude matches {|>=0.0|}
+						units matches {"µm"}
+					}
+				}
+			}
+			ELEMENT[id26] occurrences matches {0..1} matches {	-- Coating
+				value matches {
+					DV_TEXT[id47] 
+				}
+			}
+			ELEMENT[id27] occurrences matches {0..1} matches {	-- Impedance
+				value matches {
+					DV_QUANTITY[id48] matches {
+						property matches {[at37]}
+						units matches {"Ohm"}
+					}
+				}
+			}
+			ELEMENT[id28] occurrences matches {0..1} matches {	-- ElectrodeCount
+				value matches {
+					DV_COUNT[id49] matches {
+						magnitude matches {|>=0|}
+					}
+				}
+			}
+			ELEMENT[id29] occurrences matches {0..1} matches {	-- Usage
+				value matches {
+					DV_CODED_TEXT[id50] matches {
+						defining_code matches {[ac2]}		-- Usage (synthesised)
+					}
+				}
+			}
+			ELEMENT[id33] occurrences matches {0..1} matches {	-- Description
+				value matches {
+					DV_TEXT[id51] 
+				}
+			}
+			ELEMENT[id34] occurrences matches {0..1} matches {	-- ElectrodeLocation
+				value matches {
+					DV_TEXT[id52] 
+				}
+			}
+		}
+	}
+
+terminology
+	term_definitions = <
+		["en"] = <
+			["id1"] = <
+				text = <"Electrode">
+				description = <"*">
+			>
+			["id2"] = <
+				text = <"Type">
+				description = <"The type of electrode">
+			>
+			["at3"] = <
+				text = <"sharp">
+				description = <"*">
+			>
+			["at4"] = <
+				text = <"patch">
+				description = <"*">
+			>
+			["at5"] = <
+				text = <"injection">
+				description = <"*">
+			>
+			["at6"] = <
+				text = <"extracellular">
+				description = <"*">
+			>
+			["at7"] = <
+				text = <"multibarrel">
+				description = <"*">
+			>
+			["at8"] = <
+				text = <"multi-electrode-array">
+				description = <"*">
+			>
+			["at9"] = <
+				text = <"tetrode">
+				description = <"*">
+			>
+			["id12"] = <
+				text = <"Material">
+				description = <"The Material the electrodes are made of e.g. glass. tungsten, steel ...">
+			>
+			["id13"] = <
+				text = <"Glass">
+				description = <"Glass Electrode">
+			>
+			["id14"] = <
+				text = <"GlassType">
+				description = <"The Type of Glass used to pull these electrodes. (e.g. Quartz, Borosilicate)">
+			>
+			["id15"] = <
+				text = <"GlassSpecification">
+				description = <"Inner and outer diameter, with or without filament.">
+			>
+			["id16"] = <
+				text = <"FirePolish">
+				description = <"Specifies whether or not the electrodes were fire polished.">
+			>
+			["id17"] = <
+				text = <"Puller">
+				description = <"The Puller used to make the electrodes.">
+			>
+			["id18"] = <
+				text = <"PullParameter">
+				description = <"The specific pull parameters like heat, trip velocity, heat and cooling duration etc..">
+			>
+			["id19"] = <
+				text = <"Other">
+				description = <"The Material the electrodes are made of except glass.">
+			>
+			["id20"] = <
+				text = <"Name">
+				description = <"*">
+			>
+			["id21"] = <
+				text = <"Description">
+				description = <"*">
+			>
+			["id22"] = <
+				text = <"ShapeParameters">
+				description = <"The shape parameters of the electrode.">
+			>
+			["id23"] = <
+				text = <"Manufacturer">
+				description = <"The manufacturer of the electrodes if e.g. ordered from a company.">
+			>
+			["id25"] = <
+				text = <"TipSize">
+				description = <"The tip size.">
+			>
+			["id26"] = <
+				text = <"Coating">
+				description = <"*">
+			>
+			["id27"] = <
+				text = <"Impedance">
+				description = <"*">
+			>
+			["id28"] = <
+				text = <"ElectrodeCount">
+				description = <"Number of electrodes in a multi-electrode-array.">
+			>
+			["id29"] = <
+				text = <"Usage">
+				description = <"*">
+			>
+			["at30"] = <
+				text = <"Ground">
+				description = <"*">
+			>
+			["at31"] = <
+				text = <"Reference">
+				description = <"*">
+			>
+			["at32"] = <
+				text = <"Channel">
+				description = <"*">
+			>
+			["id33"] = <
+				text = <"Description">
+				description = <"*">
+			>
+			["id34"] = <
+				text = <"ElectrodeLocation">
+				description = <"*">
+			>
+			["at35"] = <
+				text = <"glass">
+				description = <"*">
+			>
+			["at36"] = <
+				text = <"Length">
+				description = <"Length">
+			>
+			["at37"] = <
+				text = <"Resistance">
+				description = <"Resistance">
+			>
+			["ac1"] = <
+				text = <"Type (synthesised)">
+				description = <"The type of electrode (synthesised)">
+			>
+			["ac2"] = <
+				text = <"Usage (synthesised)">
+				description = <"* (synthesised)">
+			>
+		>
+	>
+	term_bindings = <
+		["openehr"] = <
+			["at36"] = <http://openehr.org/id/122>
+			["at37"] = <http://openehr.org/id/375>
+		>
+	>
+	value_sets = <
+		["ac1"] = <
+			id = <"ac1">
+			members = <"at3", "at4", "at5", "at6", "at7", "at8", "at9">
+		>
+		["ac2"] = <
+			id = <"ac2">
+			members = <"at30", "at31", "at32">
+		>
+	>

@@ -1,0 +1,222 @@
+archetype (adl_version=1.5.1; generated)
+	openEHR-EHR-CLUSTER.software.v1.0.0
+
+language
+	original_language = <[ISO_639-1::cs]>
+	translations = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+	>
+
+description
+	original_author = <
+		["name"] = <"Václav Papež">
+		["organisation"] = <"University of West Bohemia">
+		["email"] = <"vpapez@kiv.zcu.cz">
+		["date"] = <"22.7.2014">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To raw description of used software. ">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+		["cs"] = <
+			language = <[ISO_639-1::cs]>
+			purpose = <"">
+			use = <"">
+			keywords = <"stimulus", "EEG/ERP">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"initial">
+	other_details = <
+		["references"] = <"From odML terminology  v1.0 http://portal.g-node.org/odml/terminologies/v1.0/terminologies.xml. ">
+		["MD5-CAM-1.0.1"] = <"C8145A2F5C5C792E7E2F9EC3BE42EFC3">
+	>
+
+definition
+	CLUSTER[id1] matches {	-- *Software(cs)
+		items matches {
+			CLUSTER[id2] occurrences matches {0..1} matches {	-- *Software(cs)
+				items matches {
+					ELEMENT[id9] matches {	-- *Name(cs)
+						value matches {
+							DV_TEXT[id21] 
+						}
+					}
+					ELEMENT[id10] occurrences matches {0..1} matches {	-- *Owner(cs)
+						value matches {
+							DV_TEXT[id22] 
+						}
+					}
+					ELEMENT[id11] occurrences matches {0..1} matches {	-- *Developer(cs)
+						value matches {
+							DV_TEXT[id23] 
+						}
+					}
+					ELEMENT[id12] occurrences matches {0..1} matches {	-- *Version(cs)
+						value matches {
+							DV_TEXT[id24] 
+						}
+					}
+					ELEMENT[id13] occurrences matches {0..1} matches {	-- *License(cs)
+						value matches {
+							DV_TEXT[id25] 
+						}
+					}
+					ELEMENT[id15] occurrences matches {0..1} matches {	-- *LicenseStart(cs)
+						value matches {
+							DV_DATE_TIME[id26] 
+						}
+					}
+					ELEMENT[id16] occurrences matches {0..1} matches {	-- *LicenseExpiration(cs)
+						value matches {
+							DV_DATE_TIME[id27] 
+						}
+					}
+					ELEMENT[id17] occurrences matches {0..1} matches {	-- *LicenseDuration(cs)
+						value matches {
+							DV_TEXT[id28] 
+						}
+					}
+					ELEMENT[id18] occurrences matches {0..1} matches {	-- *LicenseCount(cs)
+						value matches {
+							DV_COUNT[id29] matches {
+								magnitude matches {|>=0|}
+							}
+						}
+					}
+					ELEMENT[id19] occurrences matches {0..1} matches {	-- *Distribution(cs)
+						value matches {
+							DV_TEXT[id30] 
+						}
+					}
+					ELEMENT[id20] occurrences matches {0..1} matches {	-- *Description(cs)
+						value matches {
+							DV_TEXT[id31] 
+						}
+					}
+				}
+			}
+		}
+	}
+
+terminology
+	term_definitions = <
+		["en"] = <
+			["id1"] = <
+				text = <"*Software(cs)">
+				description = <"*General description of the used software.(cs)">
+			>
+			["id2"] = <
+				text = <"*Software(cs)">
+				description = <"*General description of the used software.(cs)">
+			>
+			["id9"] = <
+				text = <"*Name(cs)">
+				description = <"*Name(cs)">
+			>
+			["id10"] = <
+				text = <"*Owner(cs)">
+				description = <"*Owner(cs)">
+			>
+			["id11"] = <
+				text = <"*Developer(cs)">
+				description = <"*Developer(cs)">
+			>
+			["id12"] = <
+				text = <"*Version(cs)">
+				description = <"*Version(cs)">
+			>
+			["id13"] = <
+				text = <"*License(cs)">
+				description = <"*License(cs)">
+			>
+			["id15"] = <
+				text = <"*LicenseStart(cs)">
+				description = <"**(cs)">
+			>
+			["id16"] = <
+				text = <"*LicenseExpiration(cs)">
+				description = <"**(cs)">
+			>
+			["id17"] = <
+				text = <"*LicenseDuration(cs)">
+				description = <"**(cs)">
+			>
+			["id18"] = <
+				text = <"*LicenseCount(cs)">
+				description = <"**(cs)">
+			>
+			["id19"] = <
+				text = <"*Distribution(cs)">
+				description = <"**(cs)">
+			>
+			["id20"] = <
+				text = <"*Description(cs)">
+				description = <"**(cs)">
+			>
+		>
+		["cs"] = <
+			["id1"] = <
+				text = <"Software">
+				description = <"General description of the used software.">
+			>
+			["id2"] = <
+				text = <"Software">
+				description = <"General description of the used software.">
+			>
+			["id9"] = <
+				text = <"Name">
+				description = <"Name">
+			>
+			["id10"] = <
+				text = <"Owner">
+				description = <"Owner">
+			>
+			["id11"] = <
+				text = <"Developer">
+				description = <"Developer">
+			>
+			["id12"] = <
+				text = <"Version">
+				description = <"Version">
+			>
+			["id13"] = <
+				text = <"License">
+				description = <"License">
+			>
+			["id15"] = <
+				text = <"LicenseStart">
+				description = <"*">
+			>
+			["id16"] = <
+				text = <"LicenseExpiration">
+				description = <"*">
+			>
+			["id17"] = <
+				text = <"LicenseDuration">
+				description = <"*">
+			>
+			["id18"] = <
+				text = <"LicenseCount">
+				description = <"*">
+			>
+			["id19"] = <
+				text = <"Distribution">
+				description = <"*">
+			>
+			["id20"] = <
+				text = <"Description">
+				description = <"*">
+			>
+		>
+	>

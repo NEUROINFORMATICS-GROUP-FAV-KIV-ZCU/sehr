@@ -1,0 +1,114 @@
+archetype (adl_version=1.5.1; generated)
+	openEHR-EHR-CLUSTER.protocol.v1.0.0
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["name"] = <"Václav Papež">
+		["organisation"] = <"University of West Bohemia">
+		["email"] = <"vpapez@kiv.zcu.cz">
+		["date"] = <"22.7.2014">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Description of used protocol.">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"unmanaged">
+	other_details = <
+		["references"] = <"From odML terminology  v1.0 http://portal.g-node.org/odml/terminologies/v1.0/terminologies.xml. ">
+		["MD5-CAM-1.0.1"] = <"5BAC230056643F24F14857EC63C49187">
+	>
+
+definition
+	CLUSTER[id1] matches {	-- Protocol
+		items matches {
+			ELEMENT[id2] occurrences matches {0..1} matches {	-- Name
+				value matches {
+					DV_TEXT[id14] 
+				}
+			}
+			ELEMENT[id3] occurrences matches {0..1} matches {	-- Description
+				value matches {
+					DV_TEXT[id15] 
+				}
+			}
+			allow_archetype CLUSTER[id6] occurrences matches {0..*} matches {	-- Author
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.person_name(-a-zA-Z0-9_]+)*\.v1/}
+			}
+			ELEMENT[id9] occurrences matches {0..1} matches {	-- ProtocolFile
+				value matches {
+					DV_MULTIMEDIA[id16] matches {
+						media_type 
+					}
+				}
+			}
+			ELEMENT[id11] occurrences matches {0..1} matches {	-- ProtocolFileURL
+				value matches {
+					DV_URI[id17] 
+				}
+			}
+			ELEMENT[id12] occurrences matches {0..1} matches {	-- Duration
+				value matches {
+					DV_INTERVAL<DV_DATE_TIME>[id18] matches {
+						upper matches {
+							DV_DATE_TIME[id19] 
+						}
+						lower matches {
+							DV_DATE_TIME[id20] 
+						}
+					}
+				}
+			}
+			ELEMENT[id13] occurrences matches {0..1} matches {	-- Version
+				value matches {
+					DV_TEXT[id21] 
+				}
+			}
+		}
+	}
+
+terminology
+	term_definitions = <
+		["en"] = <
+			["id1"] = <
+				text = <"Protocol">
+				description = <"unknown">
+			>
+			["id2"] = <
+				text = <"Name">
+				description = <"*">
+			>
+			["id3"] = <
+				text = <"Description">
+				description = <"*">
+			>
+			["id6"] = <
+				text = <"Author">
+				description = <"*">
+			>
+			["id9"] = <
+				text = <"ProtocolFile">
+				description = <"*">
+			>
+			["id11"] = <
+				text = <"ProtocolFileURL">
+				description = <"*">
+			>
+			["id12"] = <
+				text = <"Duration">
+				description = <"*">
+			>
+			["id13"] = <
+				text = <"Version">
+				description = <"*">
+			>
+		>
+	>
