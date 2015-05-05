@@ -1,0 +1,113 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.psychophysics_experiment.v1
+
+concept
+	[at0000]	-- Psychophysics experiment
+language
+	original_language = <[ISO_639-1::cs]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["cs"] = <
+			language = <[ISO_639-1::cs]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"F63A906E53F00AC062203E1E26108826">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Psychophysics experiment
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Task
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Paradigm
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {	-- SubjectKnowledge
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {	-- TrainingTrials
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- TrainingDuration
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::128]>
+						list = <
+							["1"] = <
+								units = <"h">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {	-- SubjectInstruction
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {	-- definition
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["cs"] = <
+			items = <
+				["at0000"] = <
+					text = <"Psychophysics experiment">
+					description = <"Properties for describing an psychophysical experiment.">
+				>
+				["at0001"] = <
+					text = <"Task">
+					description = <"The task the subjects have to do like \"discrimination\" between different stimuli, \"detection\" of a stimulus etc... ">
+				>
+				["at0002"] = <
+					text = <"Paradigm">
+					description = <"The experimental paradigm e.g. Two-alternative-forced-choice, Three-alternative-forced-choice.">
+				>
+				["at0003"] = <
+					text = <"SubjectKnowledge">
+					description = <"Was the subject \"naive\", \"trained\", or \"instructed\"?">
+				>
+				["at0004"] = <
+					text = <"TrainingTrials">
+					description = <"The number of trials used for training of the experimental subject.">
+				>
+				["at0005"] = <
+					text = <"TrainingDuration">
+					description = <"The training duration.">
+				>
+				["at0006"] = <
+					text = <"SubjectInstruction">
+					description = <"The instructions given to the subjects.">
+				>
+				["at0007"] = <
+					text = <"definition">
+					description = <"A definition of the conducted experiment.">
+				>
+			>
+		>
+	>

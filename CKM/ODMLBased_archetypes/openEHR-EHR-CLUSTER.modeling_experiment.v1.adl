@@ -1,0 +1,52 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.modeling_experiment.v1
+
+concept
+	[at0000]	-- Modeling experiment
+language
+	original_language = <[ISO_639-1::cs]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["cs"] = <
+			language = <[ISO_639-1::cs]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"3437E953CD997E2DCB099129B0912E19">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Modeling experiment
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- SimulationType
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["cs"] = <
+			items = <
+				["at0000"] = <
+					text = <"Modeling experiment">
+					description = <"Properties for describing a modeling experiment.">
+				>
+				["at0001"] = <
+					text = <"SimulationType">
+					description = <"The type of simulation: mathmatical, phenomenological, biophysical etc..">
+				>
+			>
+		>
+	>
