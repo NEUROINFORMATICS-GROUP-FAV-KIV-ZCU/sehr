@@ -1,0 +1,247 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.software.v1
+
+concept
+	[at0000]	-- Software
+language
+	original_language = <[ISO_639-1::cs]>
+	translations = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Václav Papež">
+		["organisation"] = <"University of West Bohemia">
+		["email"] = <"vpapez@kiv.zcu.cz">
+		["date"] = <"2016-04-05">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To raw description of used software. ">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+		["cs"] = <
+			language = <[ISO_639-1::cs]>
+			purpose = <"Describes used software for the measurement.">
+			use = <"">
+			keywords = <"stimulus", "EEG/ERP", "software">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Based on odML terminology http://portal.g-node.org/odml/terminologies/v1.0/environment/environment.xml, v.1.0, d. 2014-03-17 ">
+		["MD5-CAM-1.0.1"] = <"FBD1A76A56DD5037130748BEF10432C2">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Software
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0001] occurrences matches {0..1} matches {	-- Software
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0008] matches {	-- Name
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0009] occurrences matches {0..1} matches {	-- Owner
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0010] occurrences matches {0..1} matches {	-- Developer
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {	-- Version
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {	-- License
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- LicenseStart
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..1} matches {	-- LicenseExpiration
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0016] occurrences matches {0..1} matches {	-- LicenseDuration
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0017] occurrences matches {0..1} matches {	-- LicenseCount
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|>=0|}
+							}
+						}
+					}
+					ELEMENT[at0018] occurrences matches {0..1} matches {	-- Distribution
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0019] occurrences matches {0..1} matches {	-- Description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"ODMLID", ...>
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Software(cs)">
+					description = <"*General description of the used software.(cs)">
+				>
+				["at0001"] = <
+					text = <"*Software(cs)">
+					description = <"*General description of the used software.(cs)">
+				>
+				["at0008"] = <
+					text = <"*Name(cs)">
+					description = <"*Name(cs)">
+				>
+				["at0009"] = <
+					text = <"*Owner(cs)">
+					description = <"*Owner(cs)">
+				>
+				["at0010"] = <
+					text = <"*Developer(cs)">
+					description = <"*Developer(cs)">
+				>
+				["at0011"] = <
+					text = <"*Version(cs)">
+					description = <"*Version(cs)">
+				>
+				["at0012"] = <
+					text = <"*License(cs)">
+					description = <"*License(cs)">
+				>
+				["at0014"] = <
+					text = <"*LicenseStart(cs)">
+					description = <"**(cs)">
+				>
+				["at0015"] = <
+					text = <"*LicenseExpiration(cs)">
+					description = <"**(cs)">
+				>
+				["at0016"] = <
+					text = <"*LicenseDuration(cs)">
+					description = <"**(cs)">
+				>
+				["at0017"] = <
+					text = <"*LicenseCount(cs)">
+					description = <"**(cs)">
+				>
+				["at0018"] = <
+					text = <"*Distribution(cs)">
+					description = <"**(cs)">
+				>
+				["at0019"] = <
+					text = <"*Description(cs)">
+					description = <"**(cs)">
+				>
+			>
+		>
+		["cs"] = <
+			items = <
+				["at0000"] = <
+					text = <"Software">
+					description = <"General description of the used software.">
+				>
+				["at0001"] = <
+					text = <"Software">
+					description = <"General description of the used software.">
+				>
+				["at0008"] = <
+					text = <"Name">
+					description = <"Name">
+				>
+				["at0009"] = <
+					text = <"Owner">
+					description = <"Owner">
+				>
+				["at0010"] = <
+					text = <"Developer">
+					description = <"Developer">
+				>
+				["at0011"] = <
+					text = <"Version">
+					description = <"Version">
+				>
+				["at0012"] = <
+					text = <"License">
+					description = <"License">
+				>
+				["at0014"] = <
+					text = <"LicenseStart">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"LicenseExpiration">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"LicenseDuration">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"LicenseCount">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Distribution">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Description">
+					description = <"*">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["ODMLID"] = <
+			items = <
+				["at0001"] = <[ODMLID::ODMLID057001]>
+				["at0008"] = <[ODMLID::ODMLID057002]>
+				["at0009"] = <[ODMLID::ODMLID057003]>
+				["at0010"] = <[ODMLID::ODMLID057004]>
+				["at0011"] = <[ODMLID::ODMLID057005]>
+				["at0012"] = <[ODMLID::ODMLID057006]>
+				["at0014"] = <[ODMLID::ODMLID057007]>
+				["at0015"] = <[ODMLID::ODMLID057008]>
+				["at0016"] = <[ODMLID::ODMLID057009]>
+				["at0017"] = <[ODMLID::ODMLID057010]>
+				["at0018"] = <[ODMLID::ODMLID057011]>
+				["at0019"] = <[ODMLID::ODMLID057012]>
+			>
+		>
+	>

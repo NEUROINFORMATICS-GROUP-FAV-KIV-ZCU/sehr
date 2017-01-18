@@ -1,0 +1,828 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.stimulus.v1
+
+concept
+	[at0000]	-- Stimulus
+language
+	original_language = <[ISO_639-1::cs]>
+description
+	original_author = <
+		["name"] = <"Václav Papež">
+		["organisation"] = <"University of West Bohemia">
+		["email"] = <"vpapez@kiv.zcu.cz">
+		["date"] = <"2016-04-11">
+	>
+	details = <
+		["cs"] = <
+			language = <[ISO_639-1::cs]>
+			purpose = <"General description of an applied stimulus. Specific stimuli are described by templates.">
+			use = <"">
+			keywords = <"Stimulus", "DC", "gabor", "grating", "pulse", "movie", "ramp", "random dot", "sawtooth", "sinewave", "square wave", "white noise">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Based on odML terminology http://portal.g-node.org/odml/terminologies/v1.0/stimulus/stimulus.xml, v.1.0, d. 2012-01-02 ">
+		["MD5-CAM-1.0.1"] = <"42793F5F30573E041C370E6AD3CF2F7B">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Stimulus
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype ELEMENT[at0003] occurrences matches {0..*} matches {	-- Author
+				include
+					archetype_id/value matches {/.*/}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {	-- Duration
+				value matches {
+					DV_DURATION matches {
+						value matches {PTS}
+					}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- StartTime
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {	-- EndTime
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {	-- Intensity
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {	-- Location
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {	-- Modality
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0010] occurrences matches {0..1} matches {	-- Repetitions
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0011] occurrences matches {0..1} matches {	-- InterstimulusInterval
+				value matches {
+					DV_INTERVAL<DV_TIME> matches {
+						upper matches {
+							DV_DATE_TIME matches {*}
+						}
+						lower matches {
+							DV_TIME matches {
+								value matches {HH:??:XX}
+							}
+						}
+					}
+				}
+			}
+			ELEMENT[at0012] occurrences matches {0..1} matches {	-- StimulusFile
+				value matches {
+					DV_MULTIMEDIA matches {
+						media_type matches {
+							[openEHR::
+							387, 
+							388, 
+							389, 
+							390, 
+							391, 
+							392, 
+							393, 
+							394, 
+							395, 
+							396, 
+							397, 
+							398, 
+							399, 
+							400, 
+							409, 
+							410, 
+							411, 
+							412, 
+							413, 
+							425, 
+							426, 
+							427, 
+							428, 
+							429, 
+							415, 
+							416, 
+							417, 
+							418, 
+							419, 
+							420, 
+							421, 
+							422, 
+							423, 
+							424, 
+							401, 
+							402, 
+							404, 
+							405, 
+							406, 
+							407, 
+							414]
+						}
+					}
+				}
+			}
+			ELEMENT[at0013] occurrences matches {0..1} matches {	-- StimulusFileURL
+				value matches {
+					DV_URI matches {*}
+				}
+			}
+			CLUSTER[at0015] occurrences matches {0..1} matches {	-- Position
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0016] occurrences matches {0..1} matches {	-- x
+						value matches {
+							DV_COUNT matches {*}
+						}
+					}
+					ELEMENT[at0017] occurrences matches {0..1} matches {	-- y
+						value matches {
+							DV_COUNT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0022] occurrences matches {0..1} matches {	-- PositionReference
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0023] occurrences matches {0..1} matches {	-- top-left
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0025] occurrences matches {0..1} matches {	-- center
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0024] occurrences matches {0..1} matches {	-- bottom-right
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0019] occurrences matches {0..1} matches {	-- SpatialExtent
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0020] occurrences matches {0..1} matches {	-- x
+						value matches {
+							DV_COUNT matches {*}
+						}
+					}
+					ELEMENT[at0021] occurrences matches {0..1} matches {	-- y
+						value matches {
+							DV_COUNT matches {*}
+						}
+					}
+				}
+			}
+			ELEMENT[at0026] occurrences matches {0..1} matches {	-- IntensityOffset
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0028] occurrences matches {0..1} matches {	-- TemporalOffset
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::128]>
+						list = <
+							["1"] = <
+								units = <"s">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0029] occurrences matches {0..1} matches {	-- Function
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0030] occurrences matches {0..1} matches {	-- OutputChannel
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0031] occurrences matches {0..1} matches {	-- Dimension
+				value matches {
+					C_DV_QUANTITY <
+					>
+				}
+			}
+			ELEMENT[at0032] occurrences matches {0..1} matches {	-- Type
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0033] occurrences matches {0..1} matches {	-- Contrast
+				value matches {
+					C_DV_QUANTITY <
+					>
+				}
+			}
+			ELEMENT[at0034] occurrences matches {0..1} matches {	-- GratingType
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0035] occurrences matches {0..1} matches {	-- SpatialWavelength
+				value matches {
+					C_DV_QUANTITY <
+					>
+				}
+			}
+			ELEMENT[at0036] occurrences matches {0..1} matches {	-- SpatialFrequency
+				value matches {
+					C_DV_QUANTITY <
+					>
+				}
+			}
+			ELEMENT[at0038] occurrences matches {0..1} matches {	-- Orientation
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::497]>
+						list = <
+							["1"] = <
+								units = <"°">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0039] occurrences matches {0..1} matches {	-- DriftingVelocity
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::341]>
+					>
+				}
+			}
+			ELEMENT[at0040] occurrences matches {0..1} matches {	-- FrameRate
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::382]>
+						list = <
+							["1"] = <
+								units = <"Hz">
+							>
+						>
+					>
+				}
+			}
+			CLUSTER[at0041] occurrences matches {0..1} matches {	-- SpatialResolution
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0042] occurrences matches {0..1} matches {	-- x
+						value matches {
+							DV_COUNT matches {*}
+						}
+					}
+					ELEMENT[at0043] occurrences matches {0..1} matches {	-- y
+						value matches {
+							DV_COUNT matches {*}
+						}
+					}
+				}
+			}
+			ELEMENT[at0044] occurrences matches {0..1} matches {	-- ColorSpace
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0045, 	-- monochrome
+							at0046]	-- color
+						}
+					}
+				}
+			}
+			ELEMENT[at0047] occurrences matches {0..1} matches {	-- ColorDepth
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0048] occurrences matches {0..1} matches {	-- StartAmplitude
+				value matches {
+					C_DV_QUANTITY <
+					>
+				}
+			}
+			ELEMENT[at0049] occurrences matches {0..1} matches {	-- EndAmplitude
+				value matches {
+					C_DV_QUANTITY <
+					>
+				}
+			}
+			ELEMENT[at0050] occurrences matches {0..1} matches {	-- Slope
+				value matches {
+					C_DV_QUANTITY <
+					>
+				}
+			}
+			ELEMENT[at0051] occurrences matches {0..1} matches {	-- RampStartTime
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::128]>
+						list = <
+							["1"] = <
+								units = <"s">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0052] occurrences matches {0..1} matches {	-- DotCount
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0053] occurrences matches {0..1} matches {	-- DotHorizontalExtent
+				value matches {
+					C_DV_QUANTITY <
+					>
+				}
+			}
+			ELEMENT[at0054] occurrences matches {0..1} matches {	-- DotVerticalExtent
+				value matches {
+					C_DV_QUANTITY <
+					>
+				}
+			}
+			ELEMENT[at0055] occurrences matches {0..1} matches {	-- DotPixelHeight
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0056] occurrences matches {0..1} matches {	-- DotPixelWidth
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			CLUSTER[at0057] occurrences matches {0..1} matches {	-- DotSize
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0058] occurrences matches {0..1} matches {	-- x
+						value matches {
+							DV_COUNT matches {*}
+						}
+					}
+					ELEMENT[at0059] occurrences matches {0..1} matches {	-- y
+						value matches {
+							DV_COUNT matches {*}
+						}
+					}
+				}
+			}
+			ELEMENT[at0060] occurrences matches {0..1} matches {	-- Frequency
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::382]>
+						list = <
+							["1"] = <
+								units = <"Hz">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0061] occurrences matches {0..1} matches {	-- Phase
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::382]>
+						list = <
+							["1"] = <
+								units = <"Hz">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0062] occurrences matches {0..1} matches {	-- Amplitude
+				value matches {
+					C_DV_QUANTITY <
+					>
+				}
+			}
+			ELEMENT[at0063] occurrences matches {0..1} matches {	-- MeanIntensity
+				value matches {
+					C_DV_QUANTITY <
+					>
+				}
+			}
+			ELEMENT[at0064] occurrences matches {0..1} matches {	-- DutyCycle
+				value matches {
+					C_DV_QUANTITY <
+					>
+				}
+			}
+			ELEMENT[at0065] occurrences matches {0..1} matches {	-- OffsetTime
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::128]>
+						list = <
+							["1"] = <
+								units = <"s">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0066] occurrences matches {0..1} matches {	-- Mean
+				value matches {
+					C_DV_QUANTITY <
+					>
+				}
+			}
+			ELEMENT[at0067] occurrences matches {0..1} matches {	-- Variance
+				value matches {
+					C_DV_QUANTITY <
+					>
+				}
+			}
+			ELEMENT[at0068] occurrences matches {0..1} matches {	-- LowerCutoffFrequency
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::382]>
+						list = <
+							["1"] = <
+								units = <"Hz">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0069] occurrences matches {0..1} matches {	-- UpperCutoffFrequency
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::382]>
+						list = <
+							["1"] = <
+								units = <"Hz">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0070] occurrences matches {0..1} matches {	-- Filter
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"ODMLID", ...>
+	term_definitions = <
+		["cs"] = <
+			items = <
+				["at0000"] = <
+					text = <"Stimulus">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Description">
+					description = <"A textual description of the stimulus.">
+				>
+				["at0002"] = <
+					text = <"Comment">
+					description = <"A comment on this specific stimulus.">
+				>
+				["at0003"] = <
+					text = <"Author">
+					description = <"Who is the author of this stimulus.">
+				>
+				["at0004"] = <
+					text = <"Duration">
+					description = <"The duration of the stimulus.">
+				>
+				["at0005"] = <
+					text = <"StartTime">
+					description = <"The time the stimulus started.">
+				>
+				["at0006"] = <
+					text = <"EndTime">
+					description = <"The time the stimulus ended.">
+				>
+				["at0007"] = <
+					text = <"Intensity">
+					description = <"like the current in case of electrical stimulation.">
+				>
+				["at0008"] = <
+					text = <"Location">
+					description = <"Describes the site of the stimulus application.">
+				>
+				["at0009"] = <
+					text = <"Modality">
+					description = <"Visual, acoustic, haptic, electrical, etc. stimulation.">
+				>
+				["at0010"] = <
+					text = <"Repetitions">
+					description = <"The number of repetitions of the described stimulation.">
+				>
+				["at0011"] = <
+					text = <"InterstimulusInterval">
+					description = <"The time between two subsequent stimulations.">
+				>
+				["at0012"] = <
+					text = <"StimulusFile">
+					description = <"The stimulus file used. Using it will blow up the the size of the metadatafile and we recommend to rather define the URL of underlying stimulus file.">
+				>
+				["at0013"] = <
+					text = <"StimulusFileURL">
+					description = <"The URL of a an applied stimulus file. This is the recommended alternative to explicitely including the actual stimulus via StimulusFile.">
+				>
+				["at0015"] = <
+					text = <"Position">
+					description = <"The position of the stimulus on e.g the screen. Specified as a 2-tuple (x;y). By default this position refers to the top-left corner of the object or its bounding box.">
+				>
+				["at0016"] = <
+					text = <"x">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"y">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"SpatialExtent">
+					description = <"The spatial extend of the presented stimulus (width;height) e.g. (1024;768).">
+				>
+				["at0020"] = <
+					text = <"x">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"y">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"PositionReference">
+					description = <"By default stimulus positions are specified by the coordinates of the top-left corner (or of the bounding box). Use this property for other definitions.">
+				>
+				["at0023"] = <
+					text = <"top-left">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"bottom-right">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"center">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"IntensityOffset">
+					description = <"The stimulus intensity given as the offset relative to another stimulus.">
+				>
+				["at0028"] = <
+					text = <"TemporalOffset">
+					description = <"The temporal offset (with respect to the begin of the recorded trial) with which this stimulus was presented.">
+				>
+				["at0029"] = <
+					text = <"Function">
+					description = <"The function of the described stimulus. E.g. if the white noise constitutes the carrier.">
+				>
+				["at0030"] = <
+					text = <"OutputChannel">
+					description = <"The physical output device (e.g. an analog output channel, a monitor screen, the same loudspeaker, etc.). This information can be used to explicitely express that several stimuli (that share the same OutputChannel) are jointly presented.">
+				>
+				["at0031"] = <
+					text = <"Dimension">
+					description = <"The dimensionality of the gabor.">
+				>
+				["at0032"] = <
+					text = <"Type">
+					description = <"The type of grating used. Commonly either Sinewave or Squarewave gratings are used.">
+				>
+				["at0033"] = <
+					text = <"Contrast">
+					description = <"The contrast of the grating stimulus. ">
+				>
+				["at0034"] = <
+					text = <"GratingType">
+					description = <"The type of  grating, i.e. 'sinewave' or 'sqaurewave'.">
+				>
+				["at0035"] = <
+					text = <"SpatialWavelength">
+					description = <"The spatial wavelength of the  grating.">
+				>
+				["at0036"] = <
+					comment = <"the spatial frequency of the grating">
+					text = <"SpatialFrequency">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Orientation">
+					description = <"The orientation of the grating in degrees.">
+				>
+				["at0039"] = <
+					text = <"DriftingVelocity">
+					description = <"In case of a constantly drifting grating, the velocity">
+				>
+				["at0040"] = <
+					text = <"FrameRate">
+					description = <"The framerate with which the movie was presented.">
+				>
+				["at0041"] = <
+					text = <"SpatialResolution">
+					description = <"The image resolution e.g. (640;480) pixel.">
+				>
+				["at0042"] = <
+					text = <"x">
+					description = <"*">
+				>
+				["at0043"] = <
+					text = <"y">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"ColorSpace">
+					description = <"Defines whether the movie is a monochrome, black and white, or a color movie.">
+				>
+				["at0045"] = <
+					text = <"monochrome">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"color">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"ColorDepth">
+					description = <"The color resolution in bit.">
+				>
+				["at0048"] = <
+					text = <"StartAmplitude">
+					description = <"The start amplitude of the ramp.">
+				>
+				["at0049"] = <
+					text = <"EndAmplitude">
+					description = <"The ending amplitude.">
+				>
+				["at0050"] = <
+					text = <"Slope">
+					description = <"The slopewith which the ramp ascends respectively descends.">
+				>
+				["at0051"] = <
+					text = <"RampStartTime">
+					description = <"The time the ramp started with respect to the beginning of this ramp stimulus.">
+				>
+				["at0052"] = <
+					text = <"DotCount">
+					description = <"The number of random dots placed on the screen.">
+				>
+				["at0053"] = <
+					text = <"DotHorizontalExtent">
+					description = <"The width of a single dot given in &#176;.">
+				>
+				["at0054"] = <
+					text = <"DotVerticalExtent">
+					description = <"The height of a single dot in &#176;.">
+				>
+				["at0055"] = <
+					text = <"DotPixelHeight">
+					description = <"The height of a single dot in pixel.">
+				>
+				["at0056"] = <
+					text = <"DotPixelWidth">
+					description = <"The width of a single dot given in pixel.">
+				>
+				["at0057"] = <
+					text = <"DotSize">
+					description = <"The size of a single dot specified as 2-tuple (width;height).">
+				>
+				["at0058"] = <
+					text = <"x">
+					description = <"*">
+				>
+				["at0059"] = <
+					text = <"y">
+					description = <"*">
+				>
+				["at0060"] = <
+					text = <"Frequency">
+					description = <"The frequency of the sinwave stimulation.">
+				>
+				["at0061"] = <
+					text = <"Phase">
+					description = <"Phase shift of the sinewave.">
+				>
+				["at0062"] = <
+					text = <"Amplitude">
+					description = <"Amplitude of the sinewave modulation.">
+				>
+				["at0063"] = <
+					text = <"MeanIntensity">
+					description = <"The mean intensity of the stimulus.">
+				>
+				["at0064"] = <
+					text = <"DutyCycle">
+					description = <"The part of the cylce spend in the up state. E.g. 0.5 if up and down state each take half of the time.">
+				>
+				["at0065"] = <
+					text = <"OffsetTime">
+					description = <"The temporal offset (with respect to the begin of the recorded trial) with which this stimulus was presented.">
+				>
+				["at0066"] = <
+					text = <"Mean">
+					description = <"The mean intensity of the white noise stimulus.">
+				>
+				["at0067"] = <
+					text = <"Variance">
+					description = <"The variance of the white noise stimulus.">
+				>
+				["at0068"] = <
+					text = <"LowerCutoffFrequency">
+					description = <"The low frequency cutoff of the highpass filter with which the stimulus was filtered. (Lowest frequency may also be limited by the stimulus duration)">
+				>
+				["at0069"] = <
+					text = <"UpperCutoffFrequency">
+					description = <"*The upper frequency cutoff of lowpass filter with which the stimulus was filtered. (Upper cutoff may also be defined by the nyquist frequency, respective the sample rate.)">
+				>
+				["at0070"] = <
+					text = <"Filter">
+					description = <"The filter method applied to limit the frequeny content of the stimulus.">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["ODMLID"] = <
+			items = <
+				["at0001"] = <[ODMLID::ODMLID041002]>
+				["at0002"] = <[ODMLID::ODMLID041003]>
+				["at0003"] = <[ODMLID::ODMLID041004]>
+				["at0004"] = <[ODMLID::ODMLID052003]>
+				["at0005"] = <[ODMLID::ODMLID041006]>
+				["at0006"] = <[ODMLID::ODMLID041007]>
+				["at0007"] = <[ODMLID::ODMLID044007]>
+				["at0008"] = <[ODMLID::ODMLID041009]>
+				["at0009"] = <[ODMLID::ODMLID052002]>
+				["at0010"] = <[ODMLID::ODMLID041011]>
+				["at0011"] = <[ODMLID::ODMLID041012]>
+				["at0012"] = <[ODMLID::ODMLID041013]>
+				["at0013"] = <[ODMLID::ODMLID041014]>
+				["at0015"] = <[ODMLID::ODMLID052012]>
+				["at0019"] = <[ODMLID::ODMLID052014]>
+				["at0022"] = <[ODMLID::ODMLID052013]>
+				["at0026"] = <[ODMLID::ODMLID051010]>
+				["at0028"] = <[ODMLID::ODMLID051004]>
+				["at0029"] = <[ODMLID::ODMLID052005]>
+				["at0030"] = <[ODMLID::ODMLID052006]>
+				["at0031"] = <[ODMLID::ODMLID043007]>
+				["at0032"] = <[ODMLID::ODMLID044003]>
+				["at0033"] = <[ODMLID::ODMLID044006]>
+				["at0034"] = <[ODMLID::ODMLID044008]>
+				["at0035"] = <[ODMLID::ODMLID044009]>
+				["at0036"] = <[ODMLID::ODMLID044010]>
+				["at0038"] = <[ODMLID::ODMLID044012]>
+				["at0039"] = <[ODMLID::ODMLID044013]>
+				["at0040"] = <[ODMLID::ODMLID046005]>
+				["at0041"] = <[ODMLID::ODMLID046006]>
+				["at0044"] = <[ODMLID::ODMLID046007]>
+				["at0047"] = <[ODMLID::ODMLID046008]>
+				["at0048"] = <[ODMLID::ODMLID051011]>
+				["at0049"] = <[ODMLID::ODMLID047008]>
+				["at0050"] = <[ODMLID::ODMLID047009]>
+				["at0051"] = <[ODMLID::ODMLID047010]>
+				["at0052"] = <[ODMLID::ODMLID048007]>
+				["at0053"] = <[ODMLID::ODMLID048008]>
+				["at0054"] = <[ODMLID::ODMLID048009]>
+				["at0055"] = <[ODMLID::ODMLID048010]>
+				["at0056"] = <[ODMLID::ODMLID048011]>
+				["at0057"] = <[ODMLID::ODMLID048012]>
+				["at0060"] = <[ODMLID::ODMLID051007]>
+				["at0061"] = <[ODMLID::ODMLID050008]>
+				["at0062"] = <[ODMLID::ODMLID051009]>
+				["at0063"] = <[ODMLID::ODMLID050010]>
+				["at0064"] = <[ODMLID::ODMLID051008]>
+				["at0065"] = <[ODMLID::ODMLID052004]>
+				["at0066"] = <[ODMLID::ODMLID052007]>
+				["at0067"] = <[ODMLID::ODMLID052008]>
+				["at0068"] = <[ODMLID::ODMLID052009]>
+				["at0069"] = <[ODMLID::ODMLID052010]>
+				["at0070"] = <[ODMLID::ODMLID052011]>
+			>
+		>
+	>

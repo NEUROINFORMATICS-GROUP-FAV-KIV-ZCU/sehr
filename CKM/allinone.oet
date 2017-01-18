@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>67dcf56b-a561-4a66-88ec-f62f5778d619</id>
+  <name>allinone</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report.v1" concept_name="Report">
+    <Content xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.medication_order.v0" concept_name="Medication order" path="/content" />
+    <Content xsi:type="ACTION" archetype_id="openEHR-EHR-ACTION.medication.v0" concept_name="Medication" path="/content" />
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.eegerp.v1" concept_name="Experiment" path="/content">
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.software.v1" concept_name="*Software(cs)" path="/protocol[at0019]/items[at0067]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.environment.v1" concept_name="Environment" path="/protocol[at0019]/items[at0070]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.environmental_conditions.v2" concept_name="Environmental conditions" path="/items[at0001]" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.device.v1" concept_name="Device" path="/protocol[at0019]/items[at0085]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.device_details.v1" concept_name="Device details" path="/items[at0009]" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.device.v1" concept_name="Device" path="/protocol[at0019]/items[at0086]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.device_details.v1" concept_name="Device details" path="/items[at0009]" />
+      </Items>
+    </Content>
+    <Context>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.trial_protocol.v0" concept_name="Trial protocol" path="/context/other_context[at0001]/items[at0006]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.software.v1" concept_name="*Software(cs)" path="/items[at0005]" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.stimulus.v1" template_id="f647965d-e07a-4fe4-b816-ecaaa73baa11" concept_name="DC" path="/items[at0008]" />
+      </Items>
+    </Context>
+  </definition>
+</template>
