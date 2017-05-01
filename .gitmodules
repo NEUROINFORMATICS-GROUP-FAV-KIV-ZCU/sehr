@@ -1,0 +1,6 @@
+[submodule "TM"]
+	path = TM
+	url = https://vpapez@github.com/Morbeavus/sehr_TrainedMonkeys.git
+[submodule "SemanticEHR"]
+	path = SemanticEHR
+	url = https://github.com/ghessova/SemanticEHR.git
